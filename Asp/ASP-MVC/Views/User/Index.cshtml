@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ASP_MVC.Models.User.UserListItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Gamers list</h1>
+
+@* <p> *@
+@*     <a asp-action="Create">Create New</a> *@
+@* </p> *@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pseudo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pseudo)
+            </td>
+            <td>                
+					@Html.ActionLink("Details", "Details", new { id = item.User_Id }) 
+
+					@if (sessionManager.ConnectedUser != null && (sessionManager.ConnectedUser.User_Id == item.User_Id))
+					{
+						<span> | @Html.ActionLink("Edit", "Edit", new { id = item.User_Id }) |</span>
+						<span>@Html.ActionLink("Unsubscribe", "Unsubscribe", new { id = item.User_Id })</span>
+					}
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

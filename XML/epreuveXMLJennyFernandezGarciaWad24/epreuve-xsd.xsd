@@ -1,0 +1,95 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Simple types -->
+    <xsd:simpleType name="T_str_min3_max64">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="3"/>
+            <xsd:maxLength value="64"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="T_floatX">
+        <xsd:restriction base="xsd:float">
+            <xsd:minInclusive value="-180"/>
+            <xsd:maxInclusive value="180"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="T_floatY">
+        <xsd:restriction base="xsd:float">
+            <xsd:minInclusive value="-90"/>
+            <xsd:maxInclusive value="90"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="T_time">
+        <xsd:restriction base="xsd:dateTime"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="T_platform">
+        <xsd:restriction base="xsd:positiveInteger">
+            <xsd:minInclusive value="1"/>
+            <xsd:maxExclusive value="32"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="T_Train">
+        <xsd:restriction base="T_str_min3_max64">
+            <xsd:pattern value="[A-Z0-9\.]*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- Complex types -->
+    <xsd:complexType name="T_vehicle_info">
+        <xsd:all>
+            <xsd:element ref ="vehicle"/>
+            <xsd:element ref="stops"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:complexType name="T_attr_vehicle">
+        <xsd:simpleContent>
+            <xsd:extension base ="T_Train">
+                <xsd:attribute name ="shortname" type = "T_str_min3_max64"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="T_stops">
+        <xsd:sequence>
+            <xsd:element ref= "stop" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attribute name= "number" type = "xsd:positiveInteger"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="T_stop">
+        <xsd:all>
+            <xsd:element ref= "station"/>
+            <xsd:element ref="time"/>
+            <xsd:element ref="platform"/>
+        </xsd:all>
+        <xsd:attribute name ="id" type ="xsd:ID" use="required"/>
+        <xsd:attribute name ="delay" type ="xsd:positiveInteger" use="optional"/>
+        <xsd:attribute name ="canceled" type ="xsd:boolean" use="optional"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="T_station">
+        <xsd:simpleContent>
+            <xsd:extension base="T_str_min3_max64">
+                <xsd:attribute name ="locationX" type ="T_floatX" use="required"/>
+                <xsd:attribute name ="locationY" type ="T_floatY" use="required"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <!-- Elements -->
+    <xsd:element name="vehicleinformation" type="T_vehicle_info"/>
+    <xsd:element name="vehicle" type="T_attr_vehicle"/>
+    <xsd:element name="stops" type ="T_stops"/>
+    <xsd:element name="stop" type ="T_stop"/>
+    <xsd:element name="station" type ="T_station"/>
+    <xsd:element name="time" type ="T_time"/>
+    <xsd:element name="platform" type ="T_platform"/>
+
+</xsd:schema>

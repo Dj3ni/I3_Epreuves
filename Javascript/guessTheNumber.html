@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Jenny Fernandez Garcia Wad24 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./guessTheNumber.css">
+    <!-- font family timer -->
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <!-- Script de l'examen -->
+    <!-- <script src="./guessTheNumber.js" defer></script> -->
+    <!-- Script amélioré -->
+    <script src="./refactor.js" defer></script>
+    <!-- script confettis -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <title>epreuve Guess the Number</title>
+</head>
+<body>
+    <h1>Bienvenue à Guess the Number!</h1>
+    <article>
+        <!-- Pour utiliser la bibliothèque de confettis, il faut créer une balise canva qui va recevoirle code de confettis -->
+        <canvas id="confetti-canvas"></canvas>
+        <div class = "timer">
+            <h3>Timer:</h3>
+            <div id = "timer"></div>
+            <div id ="start"></div>
+        </div>
+        <div id = "guessing">
+            <p>Veuillez entrer un nombre entre 1 et 100:</p>
+            <input type="number" name="guess" id="guess" min = "1" max = "100" disabled>
+            <button id = "guessBtn" disabled>Soumettre</button>
+            <div id ="response"></div>
+            <p></p>
+        </div>
+        </div>
+        <div id = "recap">
+            <h3>Récapitulatif de vos essais</h3>
+            <table id = "recapTable">
+                <thead>
+                    <th colspan="3">Vos propositions</th>                
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </article>
+    
+</body>
+</html>

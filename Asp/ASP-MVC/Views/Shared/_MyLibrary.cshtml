@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ASP_MVC.Models.Library.GameCopyListItem>
+@{
+	Guid connectedUserId = sessionManager.ConnectedUser.User_Id;
+	Guid userId = (Guid)ViewData["UserId"];
+}
+
+<h4>My awesome library</h4>
+
+@if(Model.Count() == 0){
+	<p>There are no games in your collection yet</p>
+
+	if (connectedUserId == userId)
+	{
+		<p> <a asp-action="Index" asp-controller="Boardgame">Add a game to my collection</a></p>
+	}
+}
+else{
+	if (connectedUserId == Model.First().User_Id)
+	{
+		<p> <a asp-action="Index" asp-controller="Boardgame">Add a game to my collection</a></p>
+	}
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.Game_Title)
+				</th>
+				@*For debug <th> *@
+				@*     @Html.DisplayNameFor(model => model.User_Id) *@
+				@* </th> *@
+				<th>
+					@Html.DisplayNameFor(model => model.State)
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					@* <td> *@
+					@*     @Html.DisplayFor(modelItem => item.Game_Id) *@
+					@* </td> *@
+					@* for debug <td> *@
+					@*     @Html.DisplayFor(modelItem => item.User_Id) *@
+					@* </td> *@
+
+					<td>
+						@Html.DisplayFor(modelItem => item.Game_Title)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.State)
+					</td>
+
+				@if(sessionManager.ConnectedUser.User_Id == item.User_Id){
+					@* Still to implement: *@
+					<td>
+						@* @Html.ActionLink("Edit", "Edit", new { id=item.Game_Copy_Id }) | *@
+						@* @Html.ActionLink("Details", "Details", new { id=item.Game_Copy_Id }) | *@
+
+						@* Plus check with attribute for change and Url*@
+						@Html.ActionLink("Remove from library", "Delete","Library", new { id = item.Game_Copy_Id })
+
+					</td>
+				}
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+
+

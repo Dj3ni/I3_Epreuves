@@ -1,0 +1,32 @@
+﻿@model ASP_MVC.Models.User.UserUnsubscribe
+
+@{
+    ViewData["Title"] = "Unsubscribe";
+}
+
+@* <h1>I want to leave far away and never come back again</h1> *@
+
+<h3>Are you sure you want to leave us forever?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pseudo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pseudo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+    
+    <form asp-action="Unsubscribe">
+		@Html.HiddenFor(Model=>Model.User_Id)
+        <input type="submit" value="Yes I am sure, bye!" class="btn btn-danger" />
+		<button class="btn btn-secondary"><a asp-action="Index">No, I was kidding, let's go back safely</a></button>
+    </form>
+</div>

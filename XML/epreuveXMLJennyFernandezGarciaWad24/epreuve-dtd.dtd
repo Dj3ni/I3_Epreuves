@@ -1,0 +1,40 @@
+<!ELEMENT current (city, temperature, wind, lastupdate)>
+
+<!ELEMENT city (coord, country, sun)>
+<!ELEMENT coord (lon, lat)>
+<!ELEMENT lon (#PCDATA)>
+<!ELEMENT lat (#PCDATA)>
+<!ATTLIST city id ID #REQUIRED>
+<!ATTLIST city name CDATA #REQUIRED>
+
+<!ELEMENT country (#PCDATA)>
+
+<!ELEMENT sun (#PCDATA)>
+<!ATTLIST sun rise CDATA #REQUIRED>
+<!ATTLIST sun set CDATA #REQUIRED>
+
+<!ELEMENT temperature (#PCDATA)>
+<!ATTLIST temperature value CDATA #REQUIRED>
+<!ATTLIST temperature min CDATA #REQUIRED>
+<!ATTLIST temperature max CDATA #REQUIRED>
+<!ATTLIST temperature unit (celsius|Fahrenheit) #REQUIRED>
+
+<!ELEMENT wind (speed, direction)>
+<!ELEMENT speed (#PCDATA)>
+<!ATTLIST speed value CDATA #REQUIRED>
+<!ATTLIST speed unit (meter-second| kilometer-hour) #REQUIRED>
+
+<!ELEMENT direction (#PCDATA)>
+<!ATTLIST direction value CDATA #REQUIRED>
+<!ATTLIST direction code (North| North-East| South| South-East| East| West| North-West| South-West) #REQUIRED>
+
+<!ELEMENT lastupdate (#PCDATA)>
+<!ATTLIST lastupdate value CDATA #REQUIRED>
+
+
+<!--Ne fonctionne pas (code initial):
+<!ATTLIST sun rise NOTATION (dateTime) #REQUIRED>
+<!ATTLIST sun set NOTATION (dateTime) #REQUIRED>
+<!NOTATION dateTime PUBLIC "YYYY-MM-DDThh:mm:ss">
+<!ATTLIST lastupdate value NOTATION (dateTime) #REQUIRED>
+du coup j'ai utilisé CDATA-->

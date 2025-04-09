@@ -1,0 +1,62 @@
+/* Jenny Fernandez Garcia Wad24 */
+
+body{
+    margin: 0;
+    box-sizing: border-box;
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+table,thead,tr, th{
+    border: 1px solid #f1faee ;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+    
+}
+
+#guess, #guessBtn{
+    margin-bottom: 10px;    
+}
+
+#guessing{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+article{
+    margin: 0 auto;
+    background-color:#1d3557;
+    width: 80%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    color:#f1faee ;
+    border-radius: 30px;
+    flex-wrap: wrap;
+}
+
+#recap, .timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#timer{
+    font-family: 'Orbitron', sans-serif;
+    font-size: xx-large;
+}
+
+.timer button{
+    margin: 10px;
+}
+
+#confetti-canvas {
+    position: fixed; 
+    z-index: 999; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    pointer-events: none;
+}

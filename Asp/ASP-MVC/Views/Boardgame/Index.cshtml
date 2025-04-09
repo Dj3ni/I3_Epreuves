@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ASP_MVC.Models.Boardgame.BoardgameListItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All our collection</h1>
+
+<p>@* Add a searchbar and if game not available set this link*@
+    <a asp-action="Create">Add a game to our collection</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Game_Title)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Game_Title)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id=item.Game_id }) |
+				<span><a asp-action="Create" asp-controller="Library" asp-route-gameId="@item.Game_id">Add in my library</a></span>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

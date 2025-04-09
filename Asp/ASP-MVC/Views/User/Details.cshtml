@@ -1,0 +1,40 @@
+﻿@model ASP_MVC.Models.User.UserDetails
+
+@{
+    // ViewData["Title"] = "Details";
+}
+
+<h1>@Model.Pseudo 's space</h1>
+<div>
+	@if (sessionManager.ConnectedUser != null && (sessionManager.ConnectedUser.User_Id == Model.User_Id))
+	{
+
+		<span>@Html.ActionLink("Edit", "Edit", new { id = Model.User_Id }) |</span>
+	}
+	<a asp-action="Index">Back to Users</a> |
+	<a asp-action="Unsubscribe" asp-controller="User" asp-route-id="@Model.User_Id">Unsubscribe</a>
+
+</div>
+	<hr />
+
+<div>
+	
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pseudo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pseudo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+</div>
+
+<hr />
+
+<partial name ="_MyLibrary" model ="Model.Library" view-data='new ViewDataDictionary(ViewData) {{"UserId",Model.User_Id}}'/>

@@ -1,0 +1,72 @@
+﻿@model ASP_MVC.Models.Boardgame.BoardgameDetails
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Model.Game_Title</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.Game_Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game_Title)
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.MinAge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MinAge) years
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.MaxAge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MaxAge) years
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.MinPlayers)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MinPlayers) player(s)
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.MaxPlayers)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MaxPlayers) players
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.Duration) 
+        </dt>
+        <dd class = "col-sm-10">
+			@if(Model.Duration is null){ 
+				<span>No data recieved</span>
+			}
+			else{
+				<span>@Html.DisplayFor(model => model.Duration) minutes.</span>
+			}
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.Registerer_Name)
+        </dt>
+        @* <dd class = "col-sm-10"> *@
+        @*     @Html.DisplayFor(model => model.Registerer) *@
+        @* </dd> *@
+		<dd class = "col-sm-10">
+            <a asp-action="Details" asp-controller="User" asp-route-id="@Model.Registerer">@Html.DisplayFor(model => model.Registerer_Name)</a>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,130 @@
+body{
+    margin: 0;
+    padding: 0;    
+}
+
+/* header */
+
+header{
+    background-color:#3e56a7;
+    color: #ffffff;
+    margin: 0;    
+    padding: 15px;
+    display:flex;
+    justify-content: space-around;
+    /* display: block;
+    clear: both; */
+}
+
+
+header h1{
+    font-family: Noto sans;
+    font-weight:500;
+}
+
+header h3{
+    font-weight:700;
+    font-family: Ysabeau Infant;
+}
+
+
+/* Navigation */
+
+header li{
+    list-style: none;
+    display: inline-block;
+    /* float: right;     */
+    padding: 5px;       
+}
+/* J'ai vraiment essayé d'utiliser le float, mais ça me rend dingue du coup, sorry, j'ai craqué et utilisé les flexbox mon autre solution aurait été d'utiliser un tableau, mais c'est moche niveau html, ça l'alourdit pour rien */
+
+header a{
+    color:#ffffff;
+    font-family: Ysabeau Infant;
+    text-decoration: none;
+}
+
+
+/* Main */
+
+main{
+    background-color: #fbfbf2;
+    margin: 0;
+    padding: 30px;
+}
+
+article{
+    background-color: #ffffff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35); 
+    border-radius: 15px;
+    padding: 30px;    
+    margin:auto;
+    margin-bottom: 30px;
+    width: 80%;    
+    box-sizing: border-box;
+    font-family: Noto sans;
+    color:#202945; 
+    display:flex;
+    justify-content: space-around;    
+}
+
+#qui, #formation{
+    flex-direction: row-reverse;
+    padding-right: 5px;
+}
+
+article img{
+    border: 10px solid #3e56a7;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 30px;    
+}
+
+article li{
+    list-style: none;
+}
+
+article li:nth-child(odd){
+    font-weight: 500;
+    margin: 10px;
+}
+
+article li:nth-child(even){
+    font-size: x-small;    
+}
+
+article p {
+    font-size: x-small;
+    margin: 20px;    
+}
+
+
+
+/* Footer */
+
+footer{
+    background-color:#202945 ;
+    color: #ffffff;
+    padding: 30px;
+    font-family: Noto sans;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+address{
+    font-style: normal;
+    /* Quand je le laisse en italique, la barre du "q" ne passe pas en-dessous du reste du texte */
+    font-family: Ysabeau Infant;
+    
+}
+
+button{
+    background-color: #202945;
+    border: 2px solid #ffffff;
+    color: white;
+    border-radius: 50px;
+    padding: 3px;
+    margin:5px;
+}

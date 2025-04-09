@@ -1,0 +1,34 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<vehicleinformation>
+    <vehicle shortname="IC 1832">BE.NMBS.IC1832</vehicle>
+    <stops number="4">
+        <stop id="0">
+            <station locationX="4.421101" locationY="51.2172">
+                Anvers-Central
+            </station>
+            <time>2024-09-04T11:06:00</time>
+            <platform>3</platform>
+        </stop>
+        <stop id="1">
+            <station locationX="4.432221" locationY="51.19923">
+                Anvers-Berchem
+            </station>
+            <time>2024-09-04T11:12:00</time>
+            <platform>6</platform>
+        </stop>
+        <stop id="2" delay="30">
+            <station locationX="4.390259" locationY="51.197828">
+                Anvers-Sud
+            </station>
+            <time>2024-09-04T11:17:00</time>
+            <platform>3</platform>
+        </stop>
+        <stop id="3" delay="45" canceled="true">
+            <station locationX="4.25952" locationY="51.208336">
+                Beveren
+            </station>
+            <time>2024-09-04T11:27:00</time>
+            <platform>2</platform>
+        </stop>
+    </stops>
+</vehicleinformation>
